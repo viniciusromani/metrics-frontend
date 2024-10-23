@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
-import logo from "../public/logo.svg";
 import { Tabs, TabsList } from "@radix-ui/react-tabs";
 import { CustomTabsTrigger as TabsTrigger } from "@/components/custom/TabsTrigger";
 import { CustomTabsContent as TabsContent } from "@/components/custom/TabsContent";
@@ -22,21 +20,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <header className="flex justify-center p-6 bg-primary rounded-b-lg">
-          <Image src={logo} alt="Logo" width={80} />
-        </header>
         <main>
-          <Tabs className="m-4" defaultValue="producao">
+          <Tabs className="m-4" defaultValue="geral">
             <TabsList className="flex justify-evenly">
-              <TabsTrigger value="producao">Produção</TabsTrigger>
-              <TabsTrigger value="furacao">Furação</TabsTrigger>
-              <TabsTrigger value="montagem">Montagem</TabsTrigger>
-              <TabsTrigger value="embalagem">Embalagem</TabsTrigger>
+              <TabsTrigger value="geral">Visão geral</TabsTrigger>
+              <TabsTrigger value="producao">Visão produção</TabsTrigger>
             </TabsList>
+            <TabsContent value="geral">Geral</TabsContent>
             <TabsContent value="producao">Produção</TabsContent>
-            <TabsContent value="furacao">Furação</TabsContent>
-            <TabsContent value="montagem">Montagem</TabsContent>
-            <TabsContent value="embalagem">Embalagem</TabsContent>
           </Tabs>
         </main>
       </body>
